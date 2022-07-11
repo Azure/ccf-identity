@@ -1,0 +1,46 @@
+name: Publish package to npmjs and github releases
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  call-build-and-test:
+    uses: Azure/ccf-identity/.github/workflows/build.yml@main
+  publish:
+    needs: call-build-and-test
+    runs-on: ubuntu-latest
+    environment:
+      release
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Npm clean install
+        working-directory: ./package
+        run: npm ci
+      - name: Publish to npm
+        working-directory: ./package     
+        run: |
+          npm publish ./dist/src --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM }}
+      - name: Get npm version
+        id: check-version
+        working-directory: ./package
+        run: |
+          version=$(npm pkg get version| tr -d '"')
+          echo "::set-output name=version::$version"
+      - name: Publish to Github release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: ${{ steps.check-version.outputs.version }}
+          tag_name: ccf-identity-${{ steps.check-version.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

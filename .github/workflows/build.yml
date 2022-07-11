@@ -1,0 +1,25 @@
+name: Build ccf-identity package
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: |
+          cd package
+          npm install
+          npm run build
+      - name: Test
+        run: |
+          cd package
+          npm install --save-dev mocha
+          npm test
