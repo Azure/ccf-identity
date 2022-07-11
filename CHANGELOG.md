@@ -2,6 +2,18 @@
 
 All notable changes to the "ccf-identity" package will be documented in this file.
 
+## 1.0.2
+
+### Enhancements
+
+### Fixes
+
+- More fixes for group and individual role mappings.
+
+### Internal Improvements
+
+---
+
 ## 1.0.1
 
 ### Enhancements
