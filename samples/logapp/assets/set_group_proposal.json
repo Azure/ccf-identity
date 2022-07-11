@@ -1,0 +1,11 @@
+{
+    "actions": [
+        {
+            "name": "set_group_id",
+            "args": {
+                "id": "grp1",
+                "name": "grp1name"
+            }
+        }
+    ]
+}

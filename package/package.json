@@ -1,0 +1,37 @@
+{
+  "name": "@microsoft/ccf-identity",
+  "version": "1.0.2",
+  "main": "dist/index",
+  "typings": "dist/index",
+  "license": "MIT",
+  "author": "Microsoft",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Azure/ccf-identity"
+  },
+  "scripts": {
+    "prepublish": "npm run compile",
+    "build": "npm run compile",
+    "compile": "npm run clean && tsc -p ./ && cp package.json dist/src/ && cp README.md dist/src",
+    "watch": "tsc -w -p ./",
+    "clean": "rm -rf dist",
+    "test": "mocha --experimental-specifier-resolution=node --loader=ts-node/esm tests/**/*.test.ts",
+    "docs": "typedoc",
+    "docs:watch": "rm -rf html && typedoc --watch --preserveWatchOutput"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^17.0.2",
+    "chai": "^4.3.4",
+    "ts-node": "^10.4.0",
+    "tslib": "^2.3.1",
+    "typedoc": "^0.22.12",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@microsoft/ccf-app": "2.0.4",
+    "jwt-decode": "^3.1.2"
+  }
+}

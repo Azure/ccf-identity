@@ -1,0 +1,27 @@
+{
+  "name": "ccf-ts",
+  "version": "0.1.1",
+  "description": "Application using TS with CCF",
+  "main": "index.js",
+  "repository": "https://github.com/Azure/ccf-identity",
+  "author": "Microsoft",
+  "license": "see LICENSE",
+  "private": true,
+  "scripts": {
+    "build": "del-cli -f dist/ && rollup --config && cp app.json dist/"
+  },
+  "dependencies": {
+    "@microsoft/ccf-app": "2.0.0-rc0",
+    "@microsoft/ccf-identity": "file:../../package/dist/src"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "del-cli": "^4.0.1",
+    "http-server": "^14.0.0",
+    "rollup": "^2.58.3",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
+  }
+}

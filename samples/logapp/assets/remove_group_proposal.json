@@ -1,0 +1,10 @@
+{
+    "actions": [
+        {
+            "name": "remove_group_id",
+            "args": {
+                "id": "grp1"
+            }
+        }
+    ]
+}

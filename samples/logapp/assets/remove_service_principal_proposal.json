@@ -1,0 +1,10 @@
+{
+    "actions": [
+        {
+            "name": "remove_service_principal_id",
+            "args": {
+                "id": "sp1"
+            }
+        }
+    ]
+}

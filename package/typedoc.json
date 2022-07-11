@@ -1,0 +1,22 @@
+{
+    "entryPoints": [
+      "src/auth.ts",
+      "src/group.ts",
+      "src/index.ts",
+      "src/principal.ts",
+      "src/rbac.ts",
+      "src/models/errorResponse.ts",
+      "src/models/groupResponse.ts",
+      "src/models/identityResponse.ts",
+      "src/models/permission.ts",
+      "src/models/principalResponse.ts",
+      "src/models/roleAssignment.ts",
+      "src/models/roleDefinition.ts"
+    ],
+    "out": "html",
+    "theme": "default",
+    "categorizeByGroup": false,
+    "validation": {
+      "invalidLink": true
+    }
+  }

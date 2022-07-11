@@ -1,0 +1,11 @@
+{
+    "actions": [
+        {
+            "name": "set_service_principal",
+            "args": {
+                "id": "sp1",
+                "name": "sp1name"
+            }
+        }
+    ]
+}
